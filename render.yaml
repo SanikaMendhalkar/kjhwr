@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: windgauge
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: UNCERTAINTY_MIN_SAMPLES
+        value: "30"
+      - key: CORS_ORIGINS
+        value: "*"

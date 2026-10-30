@@ -1,0 +1,10 @@
+services:
+  windgauge:
+    build: .
+    ports:
+      - "${PORT:-8000}:${PORT:-8000}"
+    environment:
+      PORT: "${PORT:-8000}"
+      CORS_ORIGINS: "${CORS_ORIGINS:-*}"
+      UNCERTAINTY_MIN_SAMPLES: "${UNCERTAINTY_MIN_SAMPLES:-30}"
+    restart: unless-stopped
